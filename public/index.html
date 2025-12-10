@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rahul R Naik | Portfolio</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<script>
+		document
+			.getElementById("contact-form")
+			.addEventListener("submit", async function (e) {
+				e.preventDefault();
+
+				const formData = {
+					name: this.name.value,
+					email: this.email.value,
+					subject: this.subject.value,
+					message: this.message.value,
+				};
+
+				const res = await fetch(
+					"https://portfolio-backend.onrender.com/contact",
+					{
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify(formData),
+					}
+				);
+
+				const data = await res.json();
+				if (data.status === "OK") {
+					alert("Message Sent Successfully!");
+					this.reset();
+				} else {
+					alert("Error sending message!");
+				}
+			});
+	</script>
+
+	<body>
+		<!-- HEADER -->
+		<header class="header" id="top">
+			<div class="container header-inner">
+				<div class="logo">PortFolio</div>
+
+				<nav class="nav">
+					<button
+						class="nav-toggle"
+						id="navToggle"
+						aria-label="Toggle navigation"
+					>
+						<span></span><span></span><span></span>
+					</button>
+
+					<ul class="nav-links" id="navLinks">
+						<li><a href="#hero">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#experience">Project Journey</a></li>
+						<li><a href="#testimonials">Testimonials</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<!-- HERO -->
+			<section id="hero" class="section hero">
+				<div class="container hero-inner">
+					<!-- LEFT TEXT -->
+					<div class="hero-text">
+						<p class="badge">WELCOME TO MY PORTFOLIO</p>
+
+						<h1>
+							Hi, I'm <span class="highlight">Rahul<br />R Naik</span>
+						</h1>
+
+						<p class="hero-subtitle">Student Developer & Tech Enthusiast</p>
+						&nbsp;&nbsp;
+
+						<p class="hero-description">
+							Currently studying at PES University, creating modern web apps and
+							exploring full-stack technologies
+						</p>
+
+						<div class="hero-actions">
+							<a href="#projects" class="btn btn-primary">View My Work →</a>
+							<a href="#contact" class="btn btn-ghost">Contact Me</a>
+						</div>
+
+						<div class="hero-socials">
+							<!-- LINKEDIN -->
+							<a
+								rel="noopener"
+								class="social-icon tooltip"
+								href="https://www.linkedin.com/in/rahul-r-naik-435614287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+								target="_blank"
+								data-tooltip="LinkedIn"
+							>
+								<svg
+									width="22"
+									height="22"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path
+										d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.5v14h-4.5V8zM8.34 8h4.3v1.92h.06c.6-1.14 2.1-2.34 4.32-2.34 4.62 0 5.46 3.04 5.46 7v7.42h-4.5v-6.58c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.48v6.7h-4.5V8z"
+									/>
+								</svg>
+							</a>
+
+							<!-- GITHUB -->
+							<a
+								rel="noopener"
+								class="social-icon tooltip"
+								href="https://github.com/rahulnaik6132"
+								target="_blank"
+								data-tooltip="GitHub"
+							>
+								<svg
+									width="22"
+									height="22"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path
+										d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56v-2 
+        c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 
+        1.18.08 1.8 1.22 1.8 1.22 1.04 1.8 2.73 1.28 3.4.98.1-.75.41-1.28.75-1.57 
+        -2.55-.28-5.23-1.28-5.23-5.7 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3 
+        0 0 .97-.31 3.18 1.19A11.1 11.1 0 0 1 12 6.8c.98 0 1.97.13 2.9.39 
+        2.2-1.5 3.17-1.19 3.17-1.19.63 1.55.23 2.71.11 3 
+        .75.81 1.2 1.85 1.2 3.11 0 4.43-2.69 5.42-5.25 5.7 
+        .42.37.81 1.1.81 2.23v3.3c0 .31.2.67.79.56A10.51 10.51 0 0 0 23.5 12 
+        C23.5 5.65 18.35.5 12 .5z"
+									/>
+								</svg>
+							</a>
+
+							<!-- INSTAGRAM -->
+							<a
+								rel="noopener"
+								class="social-icon tooltip"
+								href="https://www.instagram.com/rahulrnaik_016?igsh=NWhoOGY3N2RvNXV5"
+								target="_blank"
+								data-tooltip="Instagram"
+							>
+								<svg
+									width="22"
+									height="22"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path
+										d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1-.001 6.001A3 3 0 0 1 12 9zm4.5-3a1.5 1.5 0 1 0 .001 3.001A1.5 1.5 0 0 0 16.5 6z"
+									/>
+								</svg>
+							</a>
+
+							<!-- YOUTUBE -->
+							<a
+								rel="noopener"
+								class="social-icon social-icon-youtube tooltip"
+								href="https://www.youtube.com/@tidaltech16"
+								target="_blank"
+								data-tooltip="YouTube"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path
+										d="M19.6 3.2H4.4A4.4 4.4 0 0 0 0 7.6v8.8a4.4 4.4 0 0 0 4.4 4.4h15.2a4.4 4.4 0 0 0 4.4-4.4V7.6a4.4 4.4 0 0 0-4.4-4.4zm-8.4 12V8l6 3.6-6 3.6z"
+									/>
+								</svg>
+							</a>
+
+							<!-- EMAIL -->
+							<a
+								rel="noopener"
+								class="social-icon tooltip"
+								href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=rahulrnaik06@gmail.com&su=Hello%20Rahul&body=I%20want%20to%20talk%20about%20a%20project
+"
+								target="_blank"
+								data-tooltip="Email"
+							>
+								<svg
+									width="22"
+									height="22"
+									viewBox="0 0 24 24"
+									fill="currentColor"
+								>
+									<path
+										d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+        4-8 5-8-5V6l8 5 8-5v2z"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- RIGHT CARD -->
+					<div class="hero-image-card">
+						<img
+							src="PROFILE_PHOTO.png"
+							alt="Profile"
+							class="hero-main-image"
+						/>
+
+						<div class="experience-badge">
+							<strong>Fresher</strong>
+							<!-- <span class="years">Years Experience</span> -->
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ABOUT SECTION -->
+			<section id="about" class="section about-section">
+				<div class="container">
+					<div class="about-header">
+						<p class="about-subtitle">ABOUT ME</p>
+						<h2>Get to Know Me Better</h2>
+						<div class="about-underline"></div>
+					</div>
+
+					<div class="about-layout">
+						<!-- LEFT SIDE -->
+						<div class="about-left">
+							<p class="about-text">
+								I’m an MCA student at PES University, passionate about
+								developing high-quality digital solutions. With a strong
+								grounding in computer science and hands-on experience across web
+								development, data science, and cybersecurity, I enjoy building
+								clean, scalable, and user-focused applications. I thrive in
+								collaborative environments, learn quickly, and bring a
+								problem-solving mindset to every project. I’m eager to apply my
+								skills to impactful real-world work and contribute to meaningful
+								tech innovations.
+							</p>
+							<ul class="about-info">
+								<li>
+									<span class="dot"></span>
+									<div>
+										<p class="label">Email:</p>
+										<p class="value">rahulrnaik06@gmail.com</p>
+									</div>
+								</li>
+								<br />
+								<li>
+									<span class="dot"></span>
+									<div>
+										<p class="label">Location:</p>
+										<p class="value">India</p>
+									</div>
+								</li>
+								<br />
+								<li>
+									<span class="dot"></span>
+									<div>
+										<p class="label">Status:</p>
+										<p class="value active">
+											Open to new opportunities — Hire me
+										</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<!-- RIGHT CARDS -->
+						<div class="about-stats">
+							<div class="about-card">
+								<div class="about-icon">📚</div>
+								<h3>20+</h3>
+								<p>Projects Practiced</p>
+							</div>
+
+							<div class="about-card">
+								<div class="about-icon">💻</div>
+								<h3>300+</h3>
+								<p>Hours Coding</p>
+							</div>
+
+							<div class="about-card">
+								<div class="about-icon">🚀</div>
+								<h3>10+</h3>
+								<p>Technologies Learned</p>
+							</div>
+
+							<div class="about-card">
+								<div class="about-icon">🎯</div>
+								<h3>Actively</h3>
+								<p>Improving Every Day</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- SKILLS SECTION -->
+			<section id="skills" class="section skills-section">
+				<div class="container">
+					<div class="skills-header">
+						<p class="skills-subtitle">SKILLS & EXPERTISE</p>
+						<h2>What I Bring to the Table</h2>
+						<div class="skills-underline"></div>
+					</div>
+
+					<div class="skills-grid">
+						<!-- Frontend -->
+						<div class="skill-card">
+							<h3>Frontend</h3>
+
+							<div class="skill-row">
+								<span>React</span>
+								<span class="percent">75%</span>
+							</div>
+							<div class="bar"><div style="width: 75%"></div></div>
+
+							<div class="skill-row">
+								<span>JavaScript</span>
+								<span class="percent">65%</span>
+							</div>
+							<div class="bar"><div style="width: 65%"></div></div>
+
+							<div class="skill-row">
+								<span>CSS</span>
+								<span class="percent">50%</span>
+							</div>
+							<div class="bar"><div style="width: 50%"></div></div>
+						</div>
+
+						<!-- Backend -->
+						<div class="skill-card">
+							<h3>Backend</h3>
+
+							<div class="skill-row">
+								<span>Java (Spring Basics)</span>
+								<span class="percent">60%</span>
+							</div>
+							<div class="bar"><div style="width: 60%"></div></div>
+
+							<div class="skill-row">
+								<span>Node.js</span>
+								<span class="percent">70%</span>
+							</div>
+							<div class="bar"><div style="width: 70%"></div></div>
+
+							<div class="skill-row">
+								<span>Python (APIs + NLP)</span>
+								<span class="percent">75%</span>
+							</div>
+							<div class="bar"><div style="width: 75%"></div></div>
+						</div>
+
+						<!-- Database -->
+						<div class="skill-card">
+							<h3>Database</h3>
+
+							<div class="skill-row">
+								<span>MongoDB</span>
+								<span class="percent">55%</span>
+							</div>
+							<div class="bar"><div style="width: 55%"></div></div>
+
+							<div class="skill-row">
+								<span>MySQL</span>
+								<span class="percent">60%</span>
+							</div>
+							<div class="bar"><div style="width: 60%"></div></div>
+						</div>
+
+						<!-- CS Fundamentals -->
+						<div class="skill-card">
+							<h3>Computer Science</h3>
+
+							<div class="skill-row">
+								<span>Data Structures</span>
+								<span class="percent">70%</span>
+							</div>
+							<div class="bar"><div style="width: 70%"></div></div>
+
+							<div class="skill-row">
+								<span>OOP Concepts</span>
+								<span class="percent">85%</span>
+							</div>
+							<div class="bar"><div style="width: 85%"></div></div>
+						</div>
+
+						<!-- Cybersecurity -->
+						<div class="skill-card">
+							<h3>Cybersecurity</h3>
+
+							<div class="skill-row">
+								<span>Ethical Hacking Basics</span>
+								<span class="percent">20%</span>
+							</div>
+							<div class="bar"><div style="width: 20%"></div></div>
+
+							<div class="skill-row">
+								<span>Network Security</span>
+								<span class="percent">55%</span>
+							</div>
+							<div class="bar"><div style="width: 55%"></div></div>
+
+							<div class="skill-row">
+								<span>SQL Injection Basics</span>
+								<span class="percent">35%</span>
+							</div>
+							<div class="bar"><div style="width: 35%"></div></div>
+						</div>
+
+						<!-- Tools -->
+						<div class="skill-card">
+							<h3>Tools</h3>
+
+							<div class="skill-row">
+								<span>NetBeans</span>
+								<span class="percent">85%</span>
+							</div>
+							<div class="bar"><div style="width: 85%"></div></div>
+
+							<div class="skill-row">
+								<span>Git & GitHub</span>
+								<span class="percent">80%</span>
+							</div>
+							<div class="bar"><div style="width: 80%"></div></div>
+
+							<div class="skill-row">
+								<span>Postman</span>
+								<span class="percent">70%</span>
+							</div>
+							<div class="bar"><div style="width: 70%"></div></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- PROJECTS -->
+			<section id="projects" class="section projects-section">
+				<div class="container">
+					<!-- Header -->
+					<div class="projects-header">
+						<p class="projects-subtitle">MY WORK</p>
+						<h2>Featured Projects</h2>
+						<div class="projects-underline"></div>
+
+						<div class="projects-filters">
+							<button class="filter-btn active">All Projects</button>
+							<!-- <button class="filter-btn">Featured</button> -->
+						</div>
+					</div>
+
+					<!-- Projects Grid -->
+					<div class="projects-grid">
+						<!-- Project 1 -->
+						<div class="project-card">
+							<div class="project-thumb">
+								<img src="chatbot.webp" alt="" />
+								<span class="label">UG Project</span>
+							</div>
+							<h3>Admission Assistance Chatbot</h3>
+							<p>
+								A smart chatbot designed to help students with admission-related
+								queries like courses, fees, eligibility, and deadlines. Built
+								for real-time support and accessibility.
+							</p>
+
+							<div class="project-tags">
+								<span>Python</span>
+								<span>NLP</span>
+								<span>HTML</span>
+								<span>CSS</span>
+								<span>JS</span>
+							</div>
+
+							<div class="project-actions">
+								<!-- <a class="btn-demo">Live Demo</a>
+								<a class="btn-icon">💻</a> -->
+							</div>
+						</div>
+
+						<!-- Project 2 -->
+						<div class="project-card">
+							<div class="project-thumb">
+								<img src="marathi.png" alt="" />
+								<span class="label">&nbsp;InternShip Project</span>
+							</div>
+							<h3>Marathi Word Guessing (NLP)</h3>
+							<p>
+								Developed during internship at Lipee Indic Technologies. Uses
+								phonetic and linguistic analysis to interpret Marathi words and
+								generate predictions.
+							</p>
+
+							<div class="project-tags">
+								<span>Python</span>
+								<span>NLP</span>
+								<span>Indic Languages</span>
+							</div>
+
+							<div class="project-actions">
+								<!-- <a class="btn-demo">Live Demo</a>
+								<a class="btn-icon">💻</a> -->
+							</div>
+						</div>
+
+						<!-- Project 3 -->
+						<div class="project-card">
+							<div class="project-thumb">
+								<img src="bikey.png" alt="" />
+								<span class="label">Featured</span>
+							</div>
+							<h3>Bike Rental App (MERN)</h3>
+							<p>
+								A full-stack bike rental platform with features like user login,
+								bike listing, booking, and admin controls. Built using the MERN
+								stack.
+							</p>
+
+							<div class="project-tags">
+								<span>React</span>
+								<span>Node.js</span>
+								<span>MongoDB</span>
+							</div>
+
+							<div class="project-actions">
+								<!-- <a class="btn-demo">Live Demo</a>
+								<a class="btn-icon">💻</a> -->
+							</div>
+						</div>
+
+						<!-- Project 4 -->
+						<div class="project-card">
+							<div class="project-thumb">
+								<img src="retail_analysis.png" alt="" />
+							</div>
+							<span class="label">Featured</span>
+
+							<h3>Retail Sales Analysis</h3>
+							<p>
+								A SQL-based data analytics project to clean, analyze, and
+								extract insights from retail transaction datasets covering
+								trends and customer behavior.
+							</p>
+
+							<div class="project-tags">
+								<span>Excel</span>
+								<span>Data Analysis</span>
+								<span>Data Visualisation</span>
+							</div>
+
+							<div class="project-actions">
+								<!-- <a
+									rel="noopener"
+									class="btn-demo"
+									href="https://github.com/rahulnaik6132/sql_retail_sale"
+									target="_blank"
+									>Live Demo</a
+								>
+								<a class="btn-icon">💻</a> -->
+							</div>
+						</div>
+
+						<!-- Project 5 -->
+						<div class="project-card">
+							<div class="project-thumb">
+								<img src="fake_news.jpeg" alt="" />
+							</div>
+							<span class="label">Featured</span>
+
+							<h3>Fake News Classification</h3>
+							<p>
+								Built an LSTM-powered model to detect fake news using text
+								preprocessing, deep learning, and high-accuracy classification.
+							</p>
+
+							<div class="project-tags">
+								<span>Python</span>
+								<span>NLP</span>
+								<span>LSTM</span>
+							</div>
+
+							<div class="project-actions">
+								<!-- <a
+									rel="noopener"
+									class="btn-demo"
+									href="https://github.com/rahulnaik6132/Fake_news_Detection"
+									target="_blank"
+									>Live Demo</a
+								>
+								<a class="btn-icon">💻</a> -->
+							</div>
+						</div>
+
+						<!-- Project 6 -->
+						<!-- Project: AI-Powered Social Media App -->
+						<div class="project-card">
+							<div class="project-thumb">
+								<img src="Ai_social.png" alt="AI Social Media App" />
+								<span class="label">Featured</span>
+							</div>
+
+							<h3>AI-Powered Social Media App</h3>
+
+							<p>
+								A smart social media platform using AI/ML and NLP to detect fake
+								news, moderate harmful content, recommend personalized posts,
+								and support multilingual voice commands for an intelligent and
+								safe user experience.
+							</p>
+
+							<div class="project-tags">
+								<span>AI/ML</span>
+								<span>NLP</span>
+								<span>MERN</span>
+								<span>Voice Recognition</span>
+							</div>
+
+							<div class="project-actions">
+								<!-- Add Demo Link if needed -->
+								<!-- <a class="btn-demo">Live Demo</a> -->
+								<!-- <a class="btn-icon">💻</a> -->
+							</div>
+						</div>
+					</div>
+					<div class="projects-more">
+						<a
+							rel="noopener"
+							href="https://github.com/rahulnaik6132"
+							target="_blank"
+						>
+							For more → Click here
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- EXPERIENCE -->
+			<section id="experience" class="section experience-section">
+				<div class="container">
+					<div class="experience-header">
+						<p class="projects-subtitle">PROJECT JOURNEY</p>
+						<h2>My Projects</h2>
+						<div class="experience-underline"></div>
+					</div>
+
+					<div class="experience-timeline">
+						<!-- Project 1 -->
+						<div class="exp-card">
+							<div class="exp-dot"></div>
+
+							<h3>Powered Social Media App</h3>
+							<p class="exp-company">Capstone Project</p>
+
+							<div class="exp-meta">
+								<span>📅 2025 - Present</span>
+								<span>📍 PES University</span>
+							</div>
+
+							<p class="exp-desc">
+								Designed a smart social media platform using AI/ML and NLP to
+								detect fake news, filter harmful content, provide personalized
+								recommendations, and enable multilingual voice recognition for a
+								safe and engaging user experience.
+							</p>
+
+							<div class="exp-tags">
+								<span>AI/ML</span>
+								<span>NLP</span>
+								<span>MERN</span>
+								<span>Voice Recognition</span>
+							</div>
+						</div>
+
+						<!-- Project 2 -->
+						<div class="exp-card">
+							<div class="exp-dot"></div>
+
+							<h3>Bike Rental App</h3>
+							<p class="exp-company">Full-Stack MERN Application</p>
+
+							<div class="exp-meta">
+								<span>📅 2025</span>
+								<!-- <span>📍 Academic Project</span> -->
+							</div>
+
+							<p class="exp-desc">
+								Built a full-stack web application for bike rentals and sales
+								with features like user login, bike listings, bookings.
+							</p>
+
+							<div class="exp-tags">
+								<span>React</span>
+								<span>Node.js</span>
+								<span>MongoDB</span>
+								<span>Express.js</span>
+							</div>
+						</div>
+
+						<!-- Project 3 -->
+						<div class="exp-card">
+							<div class="exp-dot"></div>
+
+							<h3>Chatbot for Admission Assistance</h3>
+							<p class="exp-company">AI Chatbot System</p>
+
+							<div class="exp-meta">
+								<span>📅 2022</span>
+								<span>📍 UG Project</span>
+							</div>
+
+							<p class="exp-desc">
+								Developed a chatbot that helps students access course
+								information, fees, and eligibility details instantly, improving
+								accessibility for remote learners.
+							</p>
+
+							<div class="exp-tags">
+								<span>Python</span>
+								<span>NLP</span>
+								<span>Chatbot</span>
+							</div>
+						</div>
+
+						<!-- Project 4 -->
+						<div class="exp-card">
+							<div class="exp-dot"></div>
+
+							<h3>NLP Projects</h3>
+							<p class="exp-company">Language Processing Tools</p>
+
+							<div class="exp-meta">
+								<span>📅 2024</span>
+								<span>📍 Internship </span>
+							</div>
+
+							<p class="exp-desc">
+								Worked on a Marathi word-guessing tool using phonetic NLP, and
+								built a fake news classification model using LSTM to detect
+								misinformation with high accuracy.
+							</p>
+
+							<div class="exp-tags">
+								<span>Python</span>
+								<span>NLP</span>
+								<span>LSTM</span>
+								<span>Machine Learning</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- TESTIMONIALS -->
+			<section id="testimonials" class="section testimonials-section">
+				<div class="container">
+					<!-- Header -->
+					<div class="testimonials-header">
+						<p class="testimonials-subtitle">TESTIMONIALS</p>
+						<h2>What People Say</h2>
+						<div class="testimonials-underline"></div>
+					</div>
+
+					<!-- Testimonials Grid -->
+					<div class="testimonials-grid">
+						<!-- Testimonial 1 -->
+						<div class="testimonial-card sleek">
+							<div class="testimonial-quote-icon">❝</div>
+
+							<p class="testimonial-text">
+								"Success comes from staying curious, learning constantly, and
+								taking small steps forward. Keep adapting, keep growing, and let
+								your passion push you toward your goals."
+							</p>
+
+							<div class="testimonial-author-area">
+								<img
+									alt="testimonial-photo"
+									src="Sundar_Pichai.jpg"
+									class="testimonial-photo"
+								/>
+
+								<div>
+									<h4 class="author-name">Sundar Pichai</h4>
+									<p class="author-role">CEO</p>
+									<p class="author-company">Google & Alphabet</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- 2nd Testimonial -->
+
+						<div class="testimonial-card sleek">
+							<div class="testimonial-quote-icon">❝</div>
+
+							<p class="testimonial-text">
+								"Dream big, take bold risks, and keep pushing forward.
+								Extraordinary results come from those who experiment, persist,
+								and never give up.."
+							</p>
+
+							<div class="testimonial-author-area">
+								<img
+									alt="testimonial-photo"
+									src="elon.jpg"
+									class="testimonial-photo"
+								/>
+
+								<div>
+									<h4 class="author-name">Elon Musk</h4>
+									<p class="author-role">CEO</p>
+									<p class="author-company">Tesla & SpaceX</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- 3rd Testimonial -->
+						<div class="testimonial-card sleek">
+							<div class="testimonial-quote-icon">❝</div>
+
+							<p class="testimonial-text">
+								"Stay curious, keep improving, and empower others. Real growth
+								comes from learning every day and moving forward with humility
+								and purpose."
+							</p>
+
+							<div class="testimonial-author-area">
+								<img
+									alt="testimonial-photo"
+									src="Satya_Nadella.jpg"
+									class="testimonial-photo"
+								/>
+
+								<div>
+									<h4 class="author-name">Sundar Pichai</h4>
+									<p class="author-role">CEO</p>
+									<p class="author-company">
+										Transformed Microsoft with cloud & AI
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- CONTACT -->
+			<section id="contact" class="section contact-section">
+				<div class="container">
+					<!-- Header -->
+					<div class="contact-header">
+						<p class="contact-subtitle">GET IN TOUCH</p>
+						<h2>Let's Work Together</h2>
+						<div class="contact-underline"></div>
+					</div>
+
+					<div class="contact-layout">
+						<!-- LEFT SIDE -->
+						<div class="contact-left">
+							<h3 class="contact-left-title">Let's talk about your project</h3>
+
+							<p class="contact-left-text">
+								Have a project in mind or just want to chat? Feel free to reach
+								out! I'm always open to discussing new opportunities, creative
+								ideas or partnerships.
+							</p>
+
+							<!-- EMAIL CARD -->
+							<div class="contact-info-card">
+								<div class="info-icon">✉️</div>
+								<div>
+									<p class="info-label">Email</p>
+									<p class="info-value">rahulrnaik06@gmail.com</p>
+								</div>
+							</div>
+
+							<!-- LOCATION CARD -->
+							<div class="contact-info-card">
+								<div class="info-icon">📍</div>
+								<div>
+									<p class="info-label">Location</p>
+									<p class="info-value">India</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- RIGHT SIDE FORM -->
+						<form id="contact-form" method="POST">
+							<div class="form-field">
+								<label>Name:</label>
+								<input name="name" placeholder="Your name" required />
+							</div>
+
+							<div class="form-field">
+								<label>Email:</label>
+								<input
+									name="email"
+									placeholder="your.email@example.com"
+									required
+								/>
+							</div>
+
+							<div class="form-field">
+								<label>Subject:</label>
+								<input
+									name="subject"
+									placeholder="How can I help you?"
+									required
+								/>
+							</div>
+
+							<div class="form-field">
+								<label>Message:</label>
+								<textarea
+									name="message"
+									rows="5"
+									placeholder="Your message here..."
+									required
+								></textarea>
+							</div>
+
+							<button class="btn-send" type="submit">Send Message</button>
+						</form>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- FOOTER -->
+		<footer class="footer-v2">
+			<div class="container footer-top">
+				<!-- LEFT -->
+				<div class="footer-col">
+					<h3 class="footer-name">Rahul R Naik</h3>
+					<p class="footer-role">Student Developer & Tech Enthusiast</p>
+					<p style="color: var(--muted); font-size: small" class="footer-text">
+						Currently studying at PES University, creating modern web apps and
+						exploring full-stack technologies
+					</p>
+				</div>
+
+				<!-- CENTER -->
+				<div class="footer-col">
+					<u><h4 class="footer-heading">Quick Links</h4></u>
+					<ul class="footer-links">
+						<li style="list-style: none"><a href="#about">About</a></li>
+						<li style="list-style: none"><a href="#skills">Skills</a></li>
+						<li style="list-style: none"><a href="#projects">Projects</a></li>
+						<li style="list-style: none">
+							<a href="#experience">Experience</a>
+						</li>
+						<li style="list-style: none"><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+
+				<!-- RIGHT -->
+				<div class="footer-col">
+					<u><h4 class="footer-heading-connect">Connect</h4></u>
+					<div class="hero-socials">
+						<!-- LINKEDIN -->
+						<a
+							rel="noopener"
+							class="social-icon tooltip"
+							href="https://www.linkedin.com/in/rahul-r-naik-435614287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+							target="_blank"
+							data-tooltip="LinkedIn"
+						>
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path
+									d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8h4.5v14h-4.5V8zM8.34 8h4.3v1.92h.06c.6-1.14 2.1-2.34 4.32-2.34 4.62 0 5.46 3.04 5.46 7v7.42h-4.5v-6.58c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.48v6.7h-4.5V8z"
+								/>
+							</svg>
+						</a>
+
+						<!-- GITHUB -->
+						<a
+							rel="noopener"
+							class="social-icon tooltip"
+							href="https://github.com/rahulnaik6132"
+							target="_blank"
+							data-tooltip="GitHub"
+						>
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path
+									d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56v-2 
+        c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 
+        1.18.08 1.8 1.22 1.8 1.22 1.04 1.8 2.73 1.28 3.4.98.1-.75.41-1.28.75-1.57 
+        -2.55-.28-5.23-1.28-5.23-5.7 0-1.26.45-2.3 1.2-3.11-.12-.29-.52-1.45.11-3 
+        0 0 .97-.31 3.18 1.19A11.1 11.1 0 0 1 12 6.8c.98 0 1.97.13 2.9.39 
+        2.2-1.5 3.17-1.19 3.17-1.19.63 1.55.23 2.71.11 3 
+        .75.81 1.2 1.85 1.2 3.11 0 4.43-2.69 5.42-5.25 5.7 
+        .42.37.81 1.1.81 2.23v3.3c0 .31.2.67.79.56A10.51 10.51 0 0 0 23.5 12 
+        C23.5 5.65 18.35.5 12 .5z"
+								/>
+							</svg>
+						</a>
+
+						<!-- INSTAGRAM -->
+						<a
+							rel="noopener"
+							class="social-icon tooltip"
+							href="https://www.instagram.com/rahulrnaik_016?igsh=NWhoOGY3N2RvNXV5"
+							target="_blank"
+							data-tooltip="Instagram"
+						>
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path
+									d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1-.001 6.001A3 3 0 0 1 12 9zm4.5-3a1.5 1.5 0 1 0 .001 3.001A1.5 1.5 0 0 0 16.5 6z"
+								/>
+							</svg>
+						</a>
+
+						<!-- YOUTUBE -->
+						<a
+							rel="noopener"
+							class="social-icon social-icon-youtube tooltip"
+							href="https://www.youtube.com/@tidaltech16"
+							target="_blank"
+							data-tooltip="YouTube"
+						>
+							<svg
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path
+									d="M19.6 3.2H4.4A4.4 4.4 0 0 0 0 7.6v8.8a4.4 4.4 0 0 0 4.4 4.4h15.2a4.4 4.4 0 0 0 4.4-4.4V7.6a4.4 4.4 0 0 0-4.4-4.4zm-8.4 12V8l6 3.6-6 3.6z"
+								/>
+							</svg>
+						</a>
+
+						<!-- EMAIL -->
+						<a
+							rel="noopener"
+							class="social-icon tooltip"
+							href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=rahulrnaik06@gmail.com&su=Hello%20Rahul&body=I%20want%20to%20talk%20about%20a%20project
+"
+							target="_blank"
+							data-tooltip="Email"
+						>
+							<svg
+								width="22"
+								height="22"
+								viewBox="0 0 24 24"
+								fill="currentColor"
+							>
+								<path
+									d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 
+        4-8 5-8-5V6l8 5 8-5v2z"
+								/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<hr class="footer-divider" />
+
+			<div class="container footer-bottom">
+				<p>© 2025 Rahul R Naik. All rights reserved.</p>
+				<p class="footer-made">
+					Made with <span class="heart">💙</span> using MERN
+				</p>
+			</div>
+		</footer>
+
+		<script src="mock.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
