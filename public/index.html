@@ -12,37 +12,6 @@
 			rel="stylesheet"
 		/>
 	</head>
-	<script>
-		document
-			.getElementById("contact-form")
-			.addEventListener("submit", async function (e) {
-				e.preventDefault();
-
-				const formData = {
-					name: this.name.value,
-					email: this.email.value,
-					subject: this.subject.value,
-					message: this.message.value,
-				};
-
-				const res = await fetch(
-					"https://portfolio-backend.onrender.com/contact",
-					{
-						method: "POST",
-						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify(formData),
-					}
-				);
-
-				const data = await res.json();
-				if (data.status === "OK") {
-					alert("Message Sent Successfully!");
-					this.reset();
-				} else {
-					alert("Error sending message!");
-				}
-			});
-	</script>
 
 	<body>
 		<!-- HEADER -->
@@ -896,42 +865,30 @@
 						</div>
 
 						<!-- RIGHT SIDE FORM -->
-						<form id="contact-form" method="POST">
+						<form id="contact-form">
 							<div class="form-field">
 								<label>Name:</label>
-								<input name="name" placeholder="Your name" required />
+								<input placeholder="Enter your name" name="name" required />
 							</div>
 
 							<div class="form-field">
 								<label>Email:</label>
-								<input
-									name="email"
-									placeholder="your.email@example.com"
-									required
-								/>
+								<input placeholder="Enter your email" name="email" required />
 							</div>
 
 							<div class="form-field">
 								<label>Subject:</label>
-								<input
-									name="subject"
-									placeholder="How can I help you?"
-									required
-								/>
+								<input placeholder="Enter your subject" name="subject" required />
 							</div>
 
 							<div class="form-field">
 								<label>Message:</label>
-								<textarea
-									name="message"
-									rows="5"
-									placeholder="Your message here..."
-									required
-								></textarea>
+								<textarea placeholder="Enter your message" name="message" rows="5" required></textarea>
 							</div>
 
 							<button class="btn-send" type="submit">Send Message</button>
 						</form>
+
 					</div>
 				</div>
 			</section>
@@ -1093,5 +1050,44 @@
 
 		<script src="mock.js"></script>
 		<script src="script.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const form = document.getElementById("contact-form");
+
+				if (!form) {
+					console.error("❌ contact-form not found!");
+					return;
+				}
+
+				form.addEventListener("submit", async function (e) {
+					e.preventDefault();
+
+					const formData = {
+						name: this.name.value,
+						email: this.email.value,
+						subject: this.subject.value,
+						message: this.message.value,
+					};
+
+					const res = await fetch(
+						"https://portfolio-backend-rqmh.onrender.com/contact",
+						{
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify(formData),
+						}
+					);
+
+					const data = await res.json();
+
+					if (data.success) {
+						alert("Message Sent Successfully!");
+						this.reset();
+					} else {
+						alert("Error sending message!");
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
